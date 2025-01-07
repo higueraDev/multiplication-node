@@ -5,7 +5,7 @@ import { ServerApp } from "./presentation/server-app";
 	await main();
 })();
 
-async function main() {
+export async function main() {
 	const {
 		b: base,
 		l: limit,

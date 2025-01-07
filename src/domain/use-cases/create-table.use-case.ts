@@ -1,6 +1,6 @@
 interface CreateTableOptions {
 	base: number;
-	limit: number;
+	limit?: number;
 	header?: string;
 }
 
@@ -10,11 +10,13 @@ export interface CreateTableUseCase {
 
 export class CreateTable implements CreateTableUseCase {
 	constructor() {}
-	execute({ base, limit, header = "" }: CreateTableOptions) {
+	execute({ base, limit = 10, header = "" }: CreateTableOptions) {
 		let table = `${header}`;
 
 		for (let i = 1; i <= limit; i++) {
-			const line = `${base} x ${i} = ${base * i}\n`;
+			let line = `${base} x ${i} = ${base * i}`;
+			const hasLineBreak = i !== limit;
+			hasLineBreak && (line += "\n");
 			table += line;
 		}
 		return table;
