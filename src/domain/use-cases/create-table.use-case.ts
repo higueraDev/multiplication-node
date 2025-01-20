@@ -1,16 +1,16 @@
-interface CreateTableOptions {
+interface Options {
 	base: number;
 	limit?: number;
 	header?: string;
 }
 
 export interface CreateTableUseCase {
-	execute: (options: CreateTableOptions) => string;
+	execute: (options: Options) => string;
 }
 
 export class CreateTable implements CreateTableUseCase {
 	constructor() {}
-	execute({ base, limit = 10, header = "" }: CreateTableOptions) {
+	execute({ base, limit = 10, header = "" }: Options) {
 		let table = `${header}`;
 
 		for (let i = 1; i <= limit; i++) {
