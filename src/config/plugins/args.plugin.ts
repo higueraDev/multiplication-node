@@ -30,7 +30,7 @@ export const args = () => {
 		.option("d", {
 			alias: "destination",
 			type: "string",
-			default: "./outputs",
+			default: "outputs",
 			describe: "File destination",
 		})
 		.check((argv, options) => {
